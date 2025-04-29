@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain English Handbook - Visual Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: sans-serif;
+            /* Simple default, Tailwind might override */
+        }
+
+        /* Tech Gradient */
+        .tech-gradient {
+            background: linear-gradient(to bottom, rgba(0, 174, 239, 0.4), rgba(0, 174, 239, 0.1));
+        }
+
+        /* Card Styling */
+        .main-card,
+        .mini-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            /* box-shadow: 0 4px 6px -1px rgba(0, 174, 239, 0.1), 0 2px 4px -2px rgba(0, 174, 239, 0.1); */
+        }
+
+        .main-card {
+            border-radius: 1rem;
+            /* rounded-xl */
+        }
+
+        .mini-card {
+            border-radius: 0.75rem;
+            /* rounded-lg */
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mini-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .main-card {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .main-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Highlight Color */
+        .text-highlight {
+            color: #00AEEF;
+        }
+
+        .border-highlight {
+            border-color: #00AEEF;
+        }
+
+        .bg-highlight-gradient {
+            background: linear-gradient(to right, rgba(0, 174, 239, 0.7), rgba(0, 174, 239, 0.3));
+        }
+
+        /* Ensure sufficient contrast and readability on dark background */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ffffff;
+        }
+
+        p,
+        span,
+        li {
+            color: #d1d5db;
+            /* gray-300 */
+        }
+
+        .support-text {
+            color: #9ca3af;
+            /* gray-400 */
+        }
+
+        .subtle-text {
+            color: #6b7280;
+            /* gray-500 */
+        }
+
+        .citation {
+            font-size: 0.75rem;
+            /* text-xs */
+            color: #6b7280;
+            /* gray-500 */
+            margin-left: 4px;
+            vertical-align: super;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white p-4 sm:p-8">
+
+    <div class="container mx-auto max-w-6xl space-y-12">
+
+        <header class="text-center py-12 main-card">
+            <i class="fas fa-book-open fa-3x text-highlight mb-4"></i>
+            <h1 class="text-5xl md:text-6xl font-bold mb-2">Plain English Handbook</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-300">Key Insights and Guidelines for Clear
+                Communication <span class="citation">[cite: 1]</span></h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Visual summary of the SEC's guide on creating clear
+                disclosure documents using plain English principles for writing and design. <span
+                    class="citation">[cite: 3]</span></p>
+        </header>
+
+        <section class="main-card p-6 md:p-8">
+            <h3 class="text-3xl font-bold mb-6 text-highlight flex items-center"><i
+                    class="fas fa-info-circle mr-3"></i>What is Plain English?</h3>
+            <p class="mb-4 text-lg">Plain English does not mean deleting complex information. It ensures the orderly and
+                clear presentation of complex information so investors have the best possible chance of understanding
+                it. <span class="citation">[cite: 68, 70]</span></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Analyze Needs</h4>
+                    <p class="support-text text-sm">Decide what information investors need before writing. <span
+                            class="citation">[cite: 71]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Use Words Economically</h4>
+                    <p class="support-text text-sm">Write at a level the audience understands. <span
+                            class="citation">[cite: 72]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Structure Tightly</h4>
+                    <p class="support-text text-sm">Employ concise sentence structure. <span class="citation">[cite:
+                            72]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Be Direct & Welcoming</h4>
+                    <p class="support-text text-sm">Adopt a tone that engages the reader. <span class="citation">[cite:
+                            73]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Design Visually</h4>
+                    <p class="support-text text-sm">Create a visually appealing and readable layout. <span
+                            class="citation">[cite: 73]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Easy to Read</h4>
+                    <p class="support-text text-sm">The document should look like it’s meant to be read. <span
+                            class="citation">[cite: 74]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card p-6 md:p-8">
+            <h3 class="text-3xl font-bold mb-6 text-highlight flex items-center"><i
+                    class="fas fa-users mr-3"></i>Audience & Preparation</h3>
+            <p class="mb-4 text-lg">Understanding your audience is crucial. Tailor the document to their financial
+                sophistication and needs. <span class="citation">[cite: 116, 117]</span> Prepare by assembling a team
+                (optional) and gathering relevant materials. <span class="citation">[cite: 90, 112]</span></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Know Your Audience</h4>
+                    <p class="support-text text-sm">Gauge investor demographics, financial familiarity, and how they'll
+                        use the document. <span class="citation">[cite: 117, 120, 121, 122, 125]</span> Profile your
+                        least sophisticated investors. <span class="citation">[cite: 129]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Assemble Team (Optional)</h4>
+                    <p class="support-text text-sm">Consider involving a team leader, lead writer, lawyers, investor
+                        relations, compliance, production, marketing, and an information designer. <span
+                            class="citation">[cite: 93, 96, 98, 100, 102, 104, 105, 106, 108]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Analyze Existing Docs</h4>
+                    <p class="support-text text-sm">Read current documents to understand content, flow, language, and
+                        identify missing or unnecessary info. <span class="citation">[cite: 138, 140, 142, 143,
+                            144]</span> Eliminate redundancy. <span class="citation">[cite: 152, 155]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-2xl font-bold mb-1">Simplify Cover & Summary</h4>
+                    <p class="support-text text-sm">Make the cover inviting; strip non-required info. <span
+                            class="citation">[cite: 156, 159]</span> The summary should highlight key points, not just
+                        copy paragraphs. <span class="citation">[cite: 166, 167]</span> Use defined terms sparingly.
+                        <span class="citation">[cite: 168]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card p-6 md:p-8">
+            <h3 class="text-3xl font-bold mb-6 text-highlight flex items-center"><i
+                    class="fas fa-pen-nib mr-3"></i>Writing in Plain English</h3>
+            <p class="mb-6 text-lg">Focus on clear, concise language to avoid common problems like long sentences,
+                passive voice, weak verbs, jargon, and unnecessary details. <span class="citation">[cite: 192]</span>
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Active Voice</h4>
+                    <p class="subtle-text text-xs mb-2">Strong Verbs</p>
+                    <p class="support-text text-sm">Use active voice with strong verbs for clarity and conciseness. The
+                        subject performs the action (e.g., "The investor buys the stock"). <span class="citation">[cite:
+                            207, 208, 217]</span> Avoid passive voice ("The stock is bought") unless necessary. <span
+                            class="citation">[cite: 218, 242]</span> Find hidden verbs in nouns (nominalizations). <span
+                            class="citation">[cite: 243, 244]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Use Pronouns</h4>
+                    <p class="subtle-text text-xs mb-2">You & We</p>
+                    <p class="support-text text-sm">Use personal pronouns ("you," "we") to speak directly to readers,
+                        clarify roles, avoid abstractions, shorten sentences, and bypass gender issues. <span
+                            class="citation">[cite: 251, 252, 253, 254, 255]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Be Concrete</h4>
+                    <p class="subtle-text text-xs mb-2">Avoid Abstractions</p>
+                    <p class="support-text text-sm">Replace abstract financial terms with concrete ones or use
+                        examples/scenarios to help readers visualize concepts. <span class="citation">[cite: 261, 264,
+                            267, 274]</span> Move from general to specific (Asset -> Stock -> IBM Stock). <span
+                            class="citation">[cite: 278]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Cut Clutter</h4>
+                    <p class="subtle-text text-xs mb-2">Concise Language</p>
+                    <p class="support-text text-sm">Eliminate words that can be replaced with fewer words meaning the
+                        same thing (e.g., "in order to" -> "to"). <span class="citation">[cite: 284, 285]</span> Avoid
+                        "shotgunning" lists of synonyms; pick the best word. <span class="citation">[cite: 285,
+                            286]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Write Positively</h4>
+                    <p class="subtle-text text-xs mb-2">Avoid Negatives</p>
+                    <p class="support-text text-sm">Positive sentences are shorter and clearer (e.g., "Only the
+                        beneficiary may receive..." vs. "Persons other than... may not receive..."). <span
+                            class="citation">[cite: 298, 299]</span> Replace negative phrases with single positive words
+                        (e.g., "not certain" -> "uncertain"). <span class="citation">[cite: 301]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Short Sentences</h4>
+                    <p class="subtle-text text-xs mb-2">Break it Down</p>
+                    <p class="support-text text-sm">Avoid very long, complex sentences packed with information, jargon,
+                        and legalese. Break them down for better reader comprehension. <span class="citation">[cite:
+                            303, 304, 305]</span> Provide context before details. <span class="citation">[cite:
+                            309]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Drop Jargon</h4>
+                    <p class="subtle-text text-xs mb-2">Use Common Words</p>
+                    <p class="support-text text-sm">Ruthlessly eliminate legal and financial jargon. Use short, common
+                        words. If a technical term is necessary, explain it on first use. <span class="citation">[cite:
+                            331, 332, 333]</span> Avoid creating new acronyms. <span class="citation">[cite: 336]</span>
+                    </p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Simple Words</h4>
+                    <p class="subtle-text text-xs mb-2">Choose Simpler Synonyms</p>
+                    <p class="support-text text-sm">When a shorter, simpler synonym exists, use it (e.g., "end" not
+                        "terminate", "use" not "utilize"). <span class="citation">[cite: 351, 352, 353]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Natural Order</h4>
+                    <p class="subtle-text text-xs mb-2">Subject-Verb-Object</p>
+                    <p class="support-text text-sm">Keep the subject, verb, and object close together, following the
+                        natural SVO word order. Avoid interrupting with long modifiers. <span class="citation">[cite:
+                            356, 359, 360]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Use If-Then</h4>
+                    <p class="subtle-text text-xs mb-2">Conditionals</p>
+                    <p class="support-text text-sm">Structure conditional statements clearly using "if-then." Handle
+                        multiple conditions logically, possibly using tabulation or tables. <span
+                            class="citation">[cite: 367, 369, 370, 371, 372, 373, 374]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Parallelism</h4>
+                    <p class="subtle-text text-xs mb-2">Consistent Structure</p>
+                    <p class="support-text text-sm">Ensure items in a list or series use parallel grammatical form
+                        (e.g., all nouns or all verbs) for clarity and rhythm. <span class="citation">[cite: 376,
+                            377]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Avoid "Respectively"</h4>
+                    <p class="subtle-text text-xs mb-2">Clarity Over Brevity</p>
+                    <p class="support-text text-sm">This word forces readers to backtrack and match items, increasing
+                        effort. Rewrite sentences to state relationships directly. <span class="citation">[cite: 389,
+                            392, 393]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card p-6 md:p-8">
+            <h3 class="text-3xl font-bold mb-6 text-highlight flex items-center"><i
+                    class="fas fa-palette mr-3"></i>Designing the Document</h3>
+            <p class="mb-6 text-lg">Good design makes information easier to read and understand. Focus on hierarchy,
+                typography, layout, graphics, and color to serve the goal of clear communication. <span
+                    class="citation">[cite: 397, 398, 402]</span></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Hierarchy</h4>
+                    <p class="subtle-text text-xs mb-2">Levels of Info</p>
+                    <p class="support-text text-sm">Use distinct styles (typeface, size, weight) for headings and text
+                        to show information structure (e.g., Title -> Section -> Subsection -> Text). Limit levels (max
+                        6 recommended). <span class="citation">[cite: 413, 414, 415]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Typography</h4>
+                    <p class="subtle-text text-xs mb-2">Typefaces & Size</p>
+                    <p class="support-text text-sm">Choose readable typefaces. Serif fonts (like Times, Garamond) are
+                        generally better for body text; sans-serif (like Helvetica, Arial) for headings. <span
+                            class="citation">[cite: 419, 420, 422, 431]</span> Use appropriate point sizes (10-12pt
+                        common for text). <span class="citation">[cite: 455]</span> Use bold/italics sparingly for
+                        emphasis; avoid all caps. <span class="citation">[cite: 459, 461, 464]</span> Limit to 2
+                        typefaces per document. <span class="citation">[cite: 448]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Layout</h4>
+                    <p class="subtle-text text-xs mb-2">Spacing & Alignment</p>
+                    <p class="support-text text-sm">Use white space generously. <span class="citation">[cite:
+                            475]</span> Use left-justified, ragged-right text for readability. <span
+                            class="citation">[cite: 480]</span> Avoid fully justified or centered text. <span
+                            class="citation">[cite: 483, 486]</span> Ensure adequate line spacing (leading) - at least
+                        2pts. <span class="citation">[cite: 498, 503]</span> Keep line lengths reasonable (32-64 chars).
+                        <span class="citation">[cite: 517]</span> Use columns for long text blocks. <span
+                            class="citation">[cite: 521]</span> Keep paragraphs relatively short; use bullets and
+                        tables. <span class="citation">[cite: 533, 535, 539]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Graphics</h4>
+                    <p class="subtle-text text-xs mb-2">Visual Data</p>
+                    <p class="support-text text-sm">Use simple, clear graphics to illustrate quantitative data
+                        effectively. <span class="citation">[cite: 543, 547, 554]</span> Avoid "chartjunk" like
+                        unnecessary 3D or patterns. <span class="citation">[cite: 557, 558]</span> Ensure correct
+                        proportions and scale; avoid non-zero baselines that distort. <span class="citation">[cite: 562,
+                            566]</span> Be consistent with scales when comparing graphics. <span class="citation">[cite:
+                            567]</span> Time should flow forwards. <span class="citation">[cite: 570]</span> Organize
+                        data logically (e.g., descending order). <span class="citation">[cite: 572]</span> Integrate
+                        text and graphics closely. <span class="citation">[cite: 575]</span> Use pie charts sparingly.
+                        <span class="citation">[cite: 577, 578]</span></p>
+                </div>
+                <div class="mini-card p-4">
+                    <h4 class="text-3xl font-bold mb-1">Color</h4>
+                    <p class="subtle-text text-xs mb-2">Use Wisely</p>
+                    <p class="support-text text-sm">Even in black and white, balance the "color" black using type
+                        weights, shading, rules, or paper stock. <span class="citation">[cite: 590, 591, 593,
+                            596]</span> Ensure elements don't distract from legibility. <span class="citation">[cite:
+                            596]</span> If using color, ensure good contrast and accessibility.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="text-center text-gray-500 text-sm py-8">
+            Generated based on "A Plain English Handbook" by the U.S. SEC Office of Investor Education and Assistance
+            (August 1998). <span class="citation">[cite: 1, 2]</span> Visualization created following modern web design
+            principles.
+        </footer>
+
+    </div>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% visibility
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add a delay based on the item's index in its group if it's a mini-card
+                    const delay = entry.target.classList.contains('mini-card') ? index * 100 : 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    // observer.unobserve(entry.target); // Optional: stop observing once visible
+                }
+                // Optional: remove 'visible' class if element scrolls out of view
+                // else {
+                //     entry.target.classList.remove('visible');
+                // }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe all main cards and mini cards
+        const elementsToAnimate = document.querySelectorAll('.main-card, .mini-card');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Example Chart.js (if data were available)
+        // const ctx = document.getElementById('myChart');
+        // if (ctx) {
+        //   new Chart(ctx, {
+        //     type: 'bar',
+        //     data: {
+        //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        //       datasets: [{
+        //         label: '# of Votes',
+        //         data: [12, 19, 3, 5, 2, 3],
+        //         borderWidth: 1,
+        //         backgroundColor: 'rgba(0, 174, 239, 0.7)', // Use highlight color
+        //         borderColor: '#00AEEF'
+        //       }]
+        //     },
+        //     options: {
+        //       scales: {
+        //         y: {
+        //           beginAtZero: true,
+        //           ticks: { color: '#9ca3af' }, // Style ticks for dark mode
+        //           grid: { color: '#374151' }   // Style grid lines for dark mode
+        //         },
+        //         x: {
+        //           ticks: { color: '#9ca3af' }, // Style ticks for dark mode
+        //           grid: { color: '#374151' }   // Style grid lines for dark mode
+        //         }
+        //       },
+        //       plugins: {
+        //          legend: { labels: { color: '#d1d5db' }} // Style legend for dark mode
+        //       }
+        //     }
+        //   });
+        // }
+    </script>
+
+</body>
+
+</html>
