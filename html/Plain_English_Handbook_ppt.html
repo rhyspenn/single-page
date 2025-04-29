@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain English Handbook - Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            /* Prevent body scroll */
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            /* Enable vertical scroll snapping */
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            /* Snap to the start of each slide */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            align-items: center;
+            /* Center content horizontally */
+            padding: 5vh 5vw;
+            /* Padding relative to viewport */
+            box-sizing: border-box;
+            /* Include padding in height/width */
+            position: relative;
+            background-color: #000000;
+            text-align: center;
+            /* Center text by default */
+            overflow: hidden;
+            /* Hide overflow within slide */
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            /* Limit content width */
+            width: 100%;
+            text-align: left;
+            /* Reset text alignment for content */
+        }
+
+        /* Larger Font Sizes for Presentation */
+        .slide h1 {
+            font-size: 6rem;
+            line-height: 1.1;
+        }
+
+        /* Adjusted from 5xl/6xl */
+        .slide h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        /* Adjusted from xl/2xl */
+        .slide h3 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Adjusted from 3xl */
+        .slide h4 {
+            font-size: 2.25rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Adjusted from 2xl/3xl */
+        .slide p,
+        .slide li {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #e5e7eb;
+        }
+
+        /* gray-200 */
+        /* Adjusted from base/lg */
+        .slide .support-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #d1d5db;
+        }
+
+        /* gray-300 */
+        /* Adjusted from sm */
+        .slide .subtle-text {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* gray-400 */
+        /* Adjusted from xs/sm */
+        .slide .citation {
+            font-size: 0.8rem;
+            vertical-align: super;
+            margin-left: 2px;
+            color: #6b7280;
+        }
+
+        /* gray-500 */
+
+        /* Responsive Font Sizes */
+        @media (max-width: 1024px) {
+            .slide h1 {
+                font-size: 4rem;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .slide h3 {
+                font-size: 2.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .slide h4 {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .slide p,
+            .slide li {
+                font-size: 1.1rem;
+            }
+
+            .slide .support-text {
+                font-size: 1rem;
+            }
+
+            .slide .subtle-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .slide h1 {
+                font-size: 2.8rem;
+            }
+
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide h3 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .slide h4 {
+                font-size: 1.4rem;
+            }
+
+            .slide p,
+            .slide li {
+                font-size: 1rem;
+            }
+
+            .slide .support-text {
+                font-size: 0.9rem;
+            }
+
+            .slide .subtle-text {
+                font-size: 0.8rem;
+            }
+
+            .slide {
+                padding: 5vh 3vw;
+            }
+
+            .mini-card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            /* Adjust grid for mobile */
+        }
+
+
+        /* Tech Gradient */
+        .tech-gradient {
+            background: linear-gradient(to bottom, rgba(0, 174, 239, 0.3), rgba(0, 174, 239, 0.05));
+        }
+
+        /* Card Styling */
+        .mini-card {
+            background-color: #1f2937;
+            /* gray-800 */
+            border: 1px solid #4b5563;
+            /* gray-600 */
+            border-radius: 0.75rem;
+            /* rounded-lg */
+            padding: 1.5rem;
+            /* p-6 */
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            text-align: left;
+            height: 100%;
+            /* Make cards fill grid cell height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mini-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-fade {
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .slide-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Custom Highlight Color */
+        .text-highlight {
+            color: #00AEEF;
+        }
+
+        .border-highlight {
+            border-color: #00AEEF;
+        }
+
+        /* Helper for centering content inside flex */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .mini-card h4 {
+            color: #ffffff;
+            /* Ensure mini-card titles are white */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="presentation-container">
+
+        <div class="slide slide-fade">
+            <div class="center-content">
+                <i class="fas fa-book-open fa-4x text-highlight mb-8"></i>
+                <h1 class="font-bold mb-4">Plain English Handbook</h1>
+                <h2 class="font-semibold text-gray-300 mb-6">Key Insights and Guidelines</h2>
+                <p class="max-w-3xl text-gray-400">A visual summary of the SEC's guide for clear communication in
+                    disclosure documents.</p>
+            </div>
+        </div>
+
+        <div class="slide slide-fade tech-gradient">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-info-circle mr-3"></i>What is
+                    Plain English?</h3>
+                <p class="mb-8 text-center text-2xl max-w-4xl mx-auto">It's not about deleting complexity, but
+                    presenting it clearly and orderly so investors can understand. <span class="citation"></span></p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Analyze Needs</h4>
+                        <p class="support-text mt-2">Understand required investor info before writing. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Be Economical</h4>
+                        <p class="support-text mt-2">Use clear words at the audience's level. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Structure Tightly</h4>
+                        <p class="support-text mt-2">Employ concise sentences and structure. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Be Direct</h4>
+                        <p class="support-text mt-2">Adopt a welcoming and direct tone. <span class="citation"></span>
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Design Visually</h4>
+                        <p class="support-text mt-2">Create an appealing and readable layout. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Easy to Read</h4>
+                        <p class="support-text mt-2">Make it look like it’s meant to be read. <span
+                                class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-users mr-3"></i>Audience &
+                    Preparation</h3>
+                <p class="mb-8 text-center text-2xl max-w-4xl mx-auto">Know your investors and prepare meticulously.
+                    <span class="citation"></span></p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Know Your Audience</h4>
+                        <p class="support-text mt-2">Gauge demographics, financial knowledge, and usage patterns. Focus
+                            on the least sophisticated. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Assemble Team (Optional)</h4>
+                        <p class="support-text mt-2">Include leader, writer, legal, IR, compliance, production,
+                            marketing, design as needed. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Analyze Existing Docs</h4>
+                        <p class="support-text mt-2">Review current materials for content, flow, clarity. Remove
+                            redundancy. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Simplify Cover/Summary</h4>
+                        <p class="support-text mt-2">Make the cover inviting. Summarize key points clearly. Use defined
+                            terms sparingly early on. <span class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade tech-gradient">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-pen-nib mr-3"></i>Writing
+                    Principles (1/3)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Active Voice</h4>
+                        <p class="subtle-text text-base mb-2">Strong Verbs</p>
+                        <p class="support-text">Use subject-performs-action structure ("Investor buys stock"). Avoid
+                            passive voice ("Stock is bought") unless essential. Find hidden verbs in nouns. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Use Pronouns</h4>
+                        <p class="subtle-text text-base mb-2">You & We</p>
+                        <p class="support-text">Speak directly ("you," "we"). Clarifies roles, avoids abstraction,
+                            shortens sentences, bypasses gender issues. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Be Concrete</h4>
+                        <p class="subtle-text text-base mb-2">Avoid Abstractions</p>
+                        <p class="support-text">Replace abstract terms with concrete ones or use examples/scenarios. Go
+                            from general to specific (Asset -> Stock). <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Cut Clutter</h4>
+                        <p class="subtle-text text-base mb-2">Concise Language</p>
+                        <p class="support-text">Eliminate superfluous words ("in order to" -> "to"). Avoid redundant
+                            phrasing or lists of synonyms. <span class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-pen-nib mr-3"></i>Writing
+                    Principles (2/3)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Write Positively</h4>
+                        <p class="subtle-text text-base mb-2">Avoid Negatives</p>
+                        <p class="support-text">Positive sentences are clearer ("Only X..." vs "Not Y..."). Replace
+                            negative phrases with single positive words ("not certain" -> "uncertain"). <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Short Sentences</h4>
+                        <p class="subtle-text text-base mb-2">Break it Down</p>
+                        <p class="support-text">Avoid overly long, complex sentences. Break down information-packed
+                            sentences for better comprehension. Provide context first. <span class="citation"></span>
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Drop Jargon</h4>
+                        <p class="subtle-text text-base mb-2">Use Common Words</p>
+                        <p class="support-text">Eliminate legal/financial jargon. Use short, common words. Explain
+                            necessary technical terms on first use. Avoid new acronyms. <span class="citation"></span>
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Simple Words</h4>
+                        <p class="subtle-text text-base mb-2">Choose Simpler Synonyms</p>
+                        <p class="support-text">Use simpler synonyms when available ("end" not "terminate", "use" not
+                            "utilize"). <span class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade tech-gradient">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-pen-nib mr-3"></i>Writing
+                    Principles (3/3)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Natural Order</h4>
+                        <p class="subtle-text text-base mb-2">Subject-Verb-Object</p>
+                        <p class="support-text">Keep subject, verb, object close together (SVO order). Avoid long
+                            interrupting modifiers. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Use If-Then</h4>
+                        <p class="subtle-text text-base mb-2">Conditionals</p>
+                        <p class="support-text">Structure conditional statements clearly. Handle multiple conditions
+                            logically, perhaps with tabulation or tables. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Parallelism</h4>
+                        <p class="subtle-text text-base mb-2">Consistent Structure</p>
+                        <p class="support-text">Ensure list items use parallel grammatical form (all nouns, all verbs)
+                            for clarity and rhythm. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Avoid "Respectively"</h4>
+                        <p class="subtle-text text-base mb-2">Clarity Over Brevity</p>
+                        <p class="support-text">Forces readers to backtrack. Rewrite sentences to state relationships
+                            directly and clearly. <span class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade">
+            <div class="slide-content">
+                <h3 class="font-bold text-highlight text-center mb-10"><i class="fas fa-palette mr-3"></i>Designing the
+                    Document</h3>
+                <p class="mb-8 text-center text-2xl max-w-4xl mx-auto">Thoughtful design enhances readability and
+                    understanding. <span class="citation"></span></p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mini-card-grid">
+                    <div class="mini-card">
+                        <h4 class="font-bold">Hierarchy</h4>
+                        <p class="subtle-text text-base mb-2">Levels of Info</p>
+                        <p class="support-text">Use distinct styles (type, size, weight) for headings/text to show
+                            structure. Limit levels. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Typography</h4>
+                        <p class="subtle-text text-base mb-2">Typefaces & Size</p>
+                        <p class="support-text">Choose readable fonts (Serif for text, Sans-serif for headings). Use
+                            appropriate size (10-12pt+). Avoid all caps. Limit to 2 typefaces. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Layout</h4>
+                        <p class="subtle-text text-base mb-2">Spacing & Alignment</p>
+                        <p class="support-text">Use white space. Use left-justified, ragged-right text. Ensure good line
+                            spacing. Keep lines short (32-64 chars). Use columns, bullets, tables. <span
+                                class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Graphics</h4>
+                        <p class="subtle-text text-base mb-2">Visual Data</p>
+                        <p class="support-text">Keep simple. Avoid "chartjunk" (e.g., fake 3D). Use correct
+                            scale/proportions. Be consistent. Show time flowing forward. Integrate with text. Use pie
+                            charts sparingly. <span class="citation"></span></p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Color</h4>
+                        <p class="subtle-text text-base mb-2">Use Wisely</p>
+                        <p class="support-text">Balance black/white using type weights, shading, etc. Ensure good
+                            contrast if using color. Don't let design hinder legibility. <span class="citation"></span>
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="font-bold">Trust Your Eye</h4>
+                        <p class="subtle-text text-base mb-2">Evaluate Critically</p>
+                        <p class="support-text">Ultimately, if a design seems unclear or unhelpful, it probably is,
+                            regardless of guidelines. Ensure honesty and efficiency. <span class="citation"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide slide-fade">
+            <div class="center-content text-gray-500">
+                <i class="fas fa-check-circle fa-4x text-highlight mb-8"></i>
+                <p class="text-2xl mb-4">End of Summary</p>
+                <p class="text-lg">Based on "A Plain English Handbook" by the U.S. SEC (1998).</p>
+                <p class="text-base mt-2">Presentation format generated for enhanced visual understanding.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: document.querySelector('.presentation-container'), // Observe within the container
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the slide is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry) => {
+                const targetElement = entry.target.classList.contains('slide') ? entry.target : entry.target.closest('.slide');
+
+                if (entry.isIntersecting) {
+                    // Animate the slide itself
+                    if (targetElement && targetElement.classList.contains('slide-fade')) {
+                        targetElement.classList.add('visible');
+                    }
+                    // Animate mini-cards within the visible slide
+                    const miniCards = targetElement ? targetElement.querySelectorAll('.mini-card') : [];
+                    miniCards.forEach((card, index) => {
+                        const delay = index * 100; // Stagger mini-card animation
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, delay);
+                    });
+                    // Optional: unobserve after animation? Might interfere with scroll snapping re-triggering
+                    // if (targetElement) observer.unobserve(targetElement);
+
+
+                } else {
+                    // Optional: Reset animation when slide scrolls out of view
+                    if (targetElement && targetElement.classList.contains('slide-fade')) {
+                        targetElement.classList.remove('visible');
+                    }
+                    const miniCards = targetElement ? targetElement.querySelectorAll('.mini-card') : [];
+                    miniCards.forEach(card => {
+                        card.classList.remove('visible');
+                    });
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe all slides
+        const elementsToAnimate = document.querySelectorAll('.slide.slide-fade');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial trigger for the first slide manually if needed,
+        // as it might be in view on load without intersecting event
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstSlide = document.querySelector('.slide.slide-fade');
+            if (firstSlide) {
+                // Use a small timeout to ensure styles are applied
+                setTimeout(() => {
+                    firstSlide.classList.add('visible');
+                    const miniCards = firstSlide.querySelectorAll('.mini-card');
+                    miniCards.forEach((card, index) => {
+                        const delay = index * 100;
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, delay);
+                    });
+                }, 100);
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
