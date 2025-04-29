@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流行钢琴即兴伴奏核心概念可视化 | Pop Piano Improvisational Accompaniment Core Concepts Visualization</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Base Styling */
+        body {
+            background-color: #000000;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* Highlight Color (Professional Tech Blue) */
+        :root {
+            --highlight-color: #00AEEF;
+            --highlight-color-rgb: 0, 174, 239;
+        }
+
+        .highlight-text {
+            color: var(--highlight-color);
+        }
+
+        .highlight-bg {
+            background: linear-gradient(180deg, rgba(var(--highlight-color-rgb), 0.7) 0%, rgba(var(--highlight-color-rgb), 0.3) 100%);
+        }
+
+        .highlight-border {
+            border-color: var(--highlight-color);
+        }
+
+        /* Card Styling */
+        .main-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .mini-card {
+            background-color: #222222;
+            border: 1px solid #333;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mini-card .large-element {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            /* Responsive large font size */
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            /* Reduced margin */
+        }
+
+        .mini-card .sub-text {
+            font-size: 0.875rem;
+            /* text-sm */
+            color: #a0a0a0;
+            /* Lighter gray */
+            line-height: 1.4;
+        }
+
+        .mini-card .eng-sub {
+            font-size: 0.75rem;
+            /* text-xs */
+            color: #6b7280;
+            /* text-gray-500 */
+            margin-top: 0.25rem;
+            font-weight: normal;
+        }
+
+        /* Animation State */
+        .fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation for grid items */
+        .stagger-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-delay-5 {
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+
+    <div class="container mx-auto px-4 py-12 md:py-20">
+
+        <header class="text-center mb-16 md:mb-24 main-card rounded-2xl p-8">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 highlight-text">
+                <i class="fas fa-music mr-3"></i>流行钢琴即兴伴奏
+            </h1>
+            <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-400">
+                Pop Piano Improvisational Accompaniment
+            </h2>
+            <p class="mt-4 text-gray-500 max-w-3xl mx-auto text-sm sm:text-base"> [cite: 1]
+                核心概念与技巧概览。本教材旨在系统讲解和声、伴奏音型及风格律动，提升演奏、教学与创作能力。
+            </p>
+        </header>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fas fa-guitar mr-2"></i>第一章: 和弦标记
+                <span class="text-lg text-gray-400 font-normal ml-2">Chapter 1: Chord Markings</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">C / Cmaj</div>
+                    <div class="sub-text">大三和弦</div>
+                    <div class="eng-sub">Major Triad</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">Cm / C-</div>
+                    <div class="sub-text">小三和弦</div>
+                    <div class="eng-sub">Minor Triad</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">C+ / Caug</div>
+                    <div class="sub-text">增三和弦</div>
+                    <div class="eng-sub">Augmented Triad</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                    <div class="large-element font-bold highlight-text">C° / Cdim</div>
+                    <div class="sub-text">减三和弦</div>
+                    <div class="eng-sub">Diminished Triad</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                    <div class="large-element font-bold highlight-text">Cmaj7 / CΔ7</div>
+                    <div class="sub-text">大七和弦</div>
+                    <div class="eng-sub">Major 7th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">C7</div>
+                    <div class="sub-text">属七和弦</div>
+                    <div class="eng-sub">Dominant 7th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">Cm7 / C-7</div>
+                    <div class="sub-text">小七和弦</div>
+                    <div class="eng-sub">Minor 7th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">Cm7(b5) / C<sup>ø</sup>7</div>
+                    <div class="sub-text">半减七和弦</div>
+                    <div class="eng-sub">Half-Diminished 7th</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                    <div class="large-element font-bold highlight-text">C°7 / Cdim7</div>
+                    <div class="sub-text">减七和弦</div>
+                    <div class="eng-sub">Diminished 7th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                    <div class="large-element font-bold highlight-text">Cadd9</div>
+                    <div class="sub-text">加九和弦</div>
+                    <div class="eng-sub">Add 9 Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">Csus4</div>
+                    <div class="sub-text">挂四和弦</div>
+                    <div class="eng-sub">Suspended 4th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">C6</div>
+                    <div class="sub-text">六和弦</div>
+                    <div class="eng-sub">Sixth Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">C6/9</div>
+                    <div class="sub-text">六九和弦</div>
+                    <div class="eng-sub">Six Nine Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                    <div class="large-element font-bold highlight-text">Cmaj9</div>
+                    <div class="sub-text">大九和弦</div>
+                    <div class="eng-sub">Major 9th Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                    <div class="large-element font-bold highlight-text">C13</div>
+                    <div class="sub-text">十三和弦</div>
+                    <div class="eng-sub">Thirteenth Chord</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">F/G</div>
+                    <div class="sub-text">转位和弦</div>
+                    <div class="eng-sub">Slash Chord / Inversion</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">级数标记</div>
+                    <div class="sub-text">如 I, IV, V</div>
+                    <div class="eng-sub">Roman Numeral Analysis</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">音名标记</div>
+                    <div class="sub-text">如 C, G, Am</div>
+                    <div class="eng-sub">Chord Symbol Notation</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fas fa-link mr-2"></i>第二章: 和弦连接
+                <span class="text-lg text-gray-400 font-normal ml-2">Chapter 2: Chord Connections</span>
+            </h3>
+            <p class="mb-6 text-gray-400"> [cite: 5]
+                指前后两个不同和弦按一定规律进行声部间的序进和连接。
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">和声连接</div>
+                    <div class="sub-text"> [cite: 5]
+                        前后和弦共同音保持原声部位置不动。
+                    </div>
+                    <div class="eng-sub">Harmonic Connection (Common Tone)</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">旋律连接</div>
+                    <div class="sub-text"> [cite: 7]
+                        前后和弦没有共同音的连接，声部通常平稳进行。
+                    </div>
+                    <div class="eng-sub">Melodic Connection (Smooth Voice Leading)</div>
+                </div>
+            </div>
+            <div class="mt-6 mini-card rounded-lg p-4 stagger-delay-3">
+                <h4 class="font-semibold mb-2 highlight-text">连接练习 (作业)</h4>
+                <p class="sub-text"> [cite: 8]
+                    要求在不同调上练习特定的和弦进行，如 $I \rightarrow V \rightarrow I$ 或 $ii \rightarrow V \rightarrow I$，使用柱式和弦完成。
+                </p>
+                <div class="eng-sub">Connection Exercises (Homework)</div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-8 highlight-text"><i class="fas fa-align-left mr-2"></i>第三章:
+                常用伴奏音型 <span class="text-lg text-gray-400 font-normal ml-2">Chapter 3: Common Accompaniment
+                    Patterns</span></h3>
+
+            <div class="mb-8">
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">无旋律伴奏音型 <span
+                        class="text-base font-normal text-gray-500 ml-1">Accompaniment Patterns (Without Melody)</span>
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">柱式和弦</div>
+                        <div class="sub-text"> [cite: 9]
+                            和弦内音符同时发声，注意重音节奏。
+                        </div>
+                        <div class="eng-sub">Block Chords</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">半分解</div>
+                        <div class="sub-text"> [cite: 9]
+                            和弦音部分分解，通常低音和上方和弦分开。
+                        </div>
+                        <div class="eng-sub">Broken Chords (Partial)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">全分解</div>
+                        <div class="sub-text"> [cite: 9]
+                            和弦音完全按顺序分开演奏。
+                        </div>
+                        <div class="eng-sub">Broken Chords (Full)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">琶音</div>
+                        <div class="sub-text"> [cite: 10]
+                            和弦音快速、连续地分解演奏，通常跨越较宽音域。
+                        </div>
+                        <div class="eng-sub">Arpeggios</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                        <div class="large-element font-bold highlight-text">复合音型</div>
+                        <div class="sub-text"> [cite: 10]
+                            结合多种基础音型的伴奏模式。
+                        </div>
+                        <div class="eng-sub">Compound Patterns</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">带旋律伴奏音型 <span
+                        class="text-base font-normal text-gray-500 ml-1">Accompaniment Patterns (With Melody)</span>
+                </h4>
+                <p class="text-gray-400 mb-4 text-sm"> [cite: 10]
+                    在包含主旋律的情况下使用的伴奏方法。
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">柱式和弦</div>
+                        <div class="sub-text">旋律音通常在最高声部。</div>
+                        <div class="eng-sub">Block Chords (with Melody)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">半分解</div>
+                        <div class="sub-text">在分解模式中融入旋律。</div>
+                        <div class="eng-sub">Broken Chords (Partial, with Melody)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">全分解</div>
+                        <div class="sub-text">旋律音在分解音型之上。</div>
+                        <div class="eng-sub">Broken Chords (Full, with Melody)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">琶音</div>
+                        <div class="sub-text"> [cite: 11]
+                            琶音模式支撑旋律线条。
+                        </div>
+                        <div class="eng-sub">Arpeggios (with Melody)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">常用风格音乐节奏律动 <span
+                        class="text-base font-normal text-gray-500 ml-1">Common Style Rhythms & Grooves</span></h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">Swing</div>
+                        <div class="sub-text"> [cite: 11]
+                            具有特征性摇摆节奏（三连音感觉）。
+                        </div>
+                        <div class="eng-sub">Swing Feel</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">Bossa Nova</div>
+                        <div class="sub-text"> [cite: 11]
+                            巴西风格，柔和的切分节奏。
+                        </div>
+                        <div class="eng-sub">Bossa Nova Rhythm</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">Blues / Shuffle / Boogie Woogie</div>
+                        <div class="sub-text"> [cite: 12]
+                            基于布鲁斯的摇摆或滚动节奏型。
+                        </div>
+                        <div class="eng-sub">Blues/Shuffle/Boogie Rhythms</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">Funk</div>
+                        <div class="sub-text"> [cite: 12]
+                            强烈的切分音和十六分音符律动。
+                        </div>
+                        <div class="eng-sub">Funk Groove</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                        <div class="large-element font-bold highlight-text">Reggae</div>
+                        <div class="sub-text"> [cite: 12]
+                            反拍重音的特征节奏。
+                        </div>
+                        <div class="eng-sub">Reggae Rhythm</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fab fa-bluetooth-b mr-2"></i>第四章:
+                12小节BLUES练习 <span class="text-lg text-gray-400 font-normal ml-2">Chapter 4: 12-Bar Blues Practice</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">12小节进行</div>
+                    <div class="sub-text"> [cite: 13]
+                        标准的 I-IV-V 和弦进行结构 (I7-I7-I7-I7 / IV7-IV7-I7-I7 / V7-IV7-I7-I7)。
+                    </div>
+                    <div class="eng-sub">12-Bar Progression</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">Blues音阶</div>
+                    <div class="sub-text"> [cite: 13]
+                        通常指小调五声音阶加降五音 (1, b3, 4, b5, 5, b7)。
+                    </div>
+                    <div class="eng-sub">Blues Scale</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">乐句练习</div>
+                    <div class="sub-text"> [cite: 13, 14, 17]
+                        练习典型的 Blues 和 Rock Blues 即兴乐句。
+                    </div>
+                    <div class="eng-sub">Lick Practice</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fas fa-plus-circle mr-2"></i>第五章:
+                经过音运用与装饰性加花 <span class="text-lg text-gray-400 font-normal ml-2">Chapter 5: Passing Tones &
+                    Embellishments</span></h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">基于"7""9"</div>
+                    <div class="sub-text"> [cite: 20]
+                        使用七音或九音作为经过音连接和弦。
+                    </div>
+                    <div class="eng-sub">Passing Tones (Based on 7th/9th)</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">基于"3""5"</div>
+                    <div class="sub-text"> [cite: 20, 23]
+                        使用三音或五音作为经过音连接和弦。
+                    </div>
+                    <div class="eng-sub">Passing Tones (Based on 3rd/5th)</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">装饰性经过音</div>
+                    <div class="sub-text"> [cite: 23]
+                        围绕和弦根音、三音、五音进行的小二度装饰。
+                    </div>
+                    <div class="eng-sub">Ornamental Passing Tones</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                    <div class="large-element font-bold highlight-text">左手低音经过</div>
+                    <div class="sub-text"> [cite: 23]
+                        在左手低音线条中加入经过音，增强连接性。
+                    </div>
+                    <div class="eng-sub">Left-Hand Bass Passing Tones</div>
+                </div>
+            </div>
+            <div class="mt-6 mini-card rounded-lg p-4 stagger-delay-5">
+                <h4 class="font-semibold mb-2 highlight-text">加花练习 (作业)</h4>
+                <p class="sub-text"> [cite: 25]
+                    为给定的和弦连接添加经过音和装饰音。
+                </p>
+                <div class="eng-sub">Embellishment Exercises (Homework)</div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-8 highlight-text"><i class="fas fa-hat-jazz mr-2"></i>第六章:
+                爵士钢琴初级运用 <span class="text-lg text-gray-400 font-normal ml-2">Chapter 6: Intro to Jazz Piano</span></h3>
+
+            <div class="mb-8">
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">和弦连接练习 (标准曲) <span
+                        class="text-base font-normal text-gray-500 ml-1">Chord Connection Practice (Standards)</span>
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">Blue Bossa</div>
+                        <div class="sub-text"> [cite: 25] 经典 Bossa Nova 曲目练习。</div>
+                        <div class="eng-sub">(Kenny Dorham)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">Autumn Leaves</div>
+                        <div class="sub-text"> [cite: 25] 重要的爵士标准曲。</div>
+                        <div class="eng-sub">(Joseph Kosma)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">Fly Me to the Moon</div>
+                        <div class="sub-text"> [cite: 29] 流行爵士标准曲。</div>
+                        <div class="eng-sub">(Bart Howard)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">Summertime</div>
+                        <div class="sub-text"> [cite: 31] 来自《波吉与贝丝》的标准曲。</div>
+                        <div class="eng-sub">(George Gershwin)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">爵士常用音阶 (调式) <span
+                        class="text-base font-normal text-gray-500 ml-1">Common Jazz Scales (Modes)</span></h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">Ionian</div>
+                        <div class="sub-text"> [cite: 29] 自然大调音阶。</div>
+                        <div class="eng-sub">Major Scale</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">Dorian</div>
+                        <div class="sub-text"> [cite: 32] 小调音阶，升六级。常用于 ii 级和弦。</div>
+                        <div class="eng-sub">Minor Scale (Raised 6th)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">Phrygian</div>
+                        <div class="sub-text"> [cite: 32] 小调音阶，降二级。</div>
+                        <div class="eng-sub">Minor Scale (Flattened 2nd)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">Lydian</div>
+                        <div class="sub-text"> [cite: 32] 大调音阶，升四级。常用于 IV 级或 I 级和弦。</div>
+                        <div class="eng-sub">Major Scale (Raised 4th)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-5">
+                        <div class="large-element font-bold highlight-text">Mixolydian</div>
+                        <div class="sub-text"> [cite: 32] 大调音阶，降七级。常用于 V 级属七和弦。</div>
+                        <div class="eng-sub">Dominant Scale (Flattened 7th)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">Aeolian</div>
+                        <div class="sub-text"> [cite: 32] 自然小调音阶。</div>
+                        <div class="eng-sub">Natural Minor Scale</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">Locrian</div>
+                        <div class="sub-text"> [cite: 32] 小调音阶，降二级和降五级。常用于 vii 级半减七和弦。</div>
+                        <div class="eng-sub">Minor Scale (Flattened 2nd & 5th)</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">II-V-I</div>
+                        <div class="sub-text"> [cite: 33] 爵士乐中最核心的和弦进行，练习 Solo 的基础。</div>
+                        <div class="eng-sub">II-V-I Progression Solo Practice</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-8 highlight-text"><i class="fas fa-feather-alt mr-2"></i>第七章:
+                旋律即兴创作 <span class="text-lg text-gray-400 font-normal ml-2">Chapter 7: Melodic Improvisation</span></h3>
+
+            <div class="mb-8">
+                <h4 class="text-xl font-semibold mb-4 text-gray-300">以和弦音创作 <span
+                        class="text-base font-normal text-gray-500 ml-1">Creating from Chord Tones</span></h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                        <div class="large-element font-bold highlight-text">从 3 音出发</div>
+                        <div class="sub-text"> [cite: 41] 以和弦的三音作为旋律起点。</div>
+                        <div class="eng-sub">Starting from the 3rd</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                        <div class="large-element font-bold highlight-text">从 5 音出发</div>
+                        <div class="sub-text"> [cite: 41] 以和弦的五音作为旋律起点。</div>
+                        <div class="eng-sub">Starting from the 5th</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                        <div class="large-element font-bold highlight-text">从 7 音出发</div>
+                        <div class="sub-text"> [cite: 42] 以和弦的七音作为旋律起点。</div>
+                        <div class="eng-sub">Starting from the 7th</div>
+                    </div>
+                    <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                        <div class="large-element font-bold highlight-text">从 9 音出发</div>
+                        <div class="sub-text"> [cite: 44] 以和弦的九音作为旋律起点或目标音。</div>
+                        <div class="eng-sub">Starting from the 9th</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-300">旋律线 <span
+                            class="text-base font-normal text-gray-500 ml-1">Melody Line</span></h4>
+                    <div class="space-y-4">
+                        <div class="mini-card rounded-lg p-4 stagger-delay-1">
+                            <h5 class="font-semibold highlight-text">上行</h5>
+                            <div class="sub-text"> [cite: 44] 旋律走向向上发展。</div>
+                            <div class="eng-sub">Ascending</div>
+                        </div>
+                        <div class="mini-card rounded-lg p-4 stagger-delay-2">
+                            <h5 class="font-semibold highlight-text">下行</h5>
+                            <div class="sub-text"> [cite: 44] 旋律走向向下发展。</div>
+                            <div class="eng-sub">Descending</div>
+                        </div>
+                        <div class="mini-card rounded-lg p-4 stagger-delay-3">
+                            <h5 class="font-semibold highlight-text">平行</h5>
+                            <div class="sub-text"> [cite: 44] 旋律在相似音高范围内进行。</div>
+                            <div class="eng-sub">Parallel / Static</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-300">节奏的运用 <span
+                            class="text-base font-normal text-gray-500 ml-1">Rhythmic Application</span></h4>
+                    <div class="space-y-4">
+                        <div class="mini-card rounded-lg p-4 stagger-delay-1">
+                            <h5 class="font-semibold highlight-text">拉伸</h5>
+                            <div class="sub-text"> [cite: 44] 将旋律动机的节奏放慢、时值延长。</div>
+                            <div class="eng-sub">Augmentation / Stretching</div>
+                        </div>
+                        <div class="mini-card rounded-lg p-4 stagger-delay-2">
+                            <h5 class="font-semibold highlight-text">紧缩</h5>
+                            <div class="sub-text"> [cite: 44] 将旋律动机的节奏加快、时值缩短。</div>
+                            <div class="eng-sub">Diminution / Compressing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-gray-300">重复 <span
+                            class="text-base font-normal text-gray-500 ml-1">Repetition</span></h4>
+                    <div class="space-y-4">
+                        <div class="mini-card rounded-lg p-4 stagger-delay-1">
+                            <h5 class="font-semibold highlight-text">完全重复</h5>
+                            <div class="sub-text"> [cite: 48] 原封不动地重复旋律片段。</div>
+                            <div class="eng-sub">Exact Repetition</div>
+                        </div>
+                        <div class="mini-card rounded-lg p-4 stagger-delay-2">
+                            <h5 class="font-semibold highlight-text">变化重复</h5>
+                            <div class="sub-text"> [cite: 48] 重复旋律片段，但稍作修改（节奏或音高）。</div>
+                            <div class="eng-sub">Varied Repetition</div>
+                        </div>
+                        <div class="mini-card rounded-lg p-4 stagger-delay-3">
+                            <h5 class="font-semibold highlight-text">模进</h5>
+                            <div class="sub-text"> [cite: 48] 在不同音高上重复旋律片段（移位重复）。</div>
+                            <div class="eng-sub">Sequence (Transposed Repetition)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 mini-card rounded-lg p-4 stagger-delay-4">
+                <h4 class="font-semibold mb-2 highlight-text">即兴创作练习 (作业)</h4>
+                <p class="sub-text"> [cite: 49]
+                    使用给定的和弦进行（如 $I \rightarrow vi \rightarrow IV \rightarrow V$），在12个调上完成即兴旋律创作。
+                </p>
+                <div class="eng-sub">Improvisation Creation Exercises (Homework)</div>
+            </div>
+        </section>
+
+        <section class="mb-12 md:mb-16 main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fas fa-hand-paper mr-2"></i>第八章:
+                常用和弦排列 (手位) <span class="text-lg text-gray-400 font-normal ml-2">Chapter 8: Common Chord Voicings (Hand
+                    Positions)</span></h3>
+            <p class="mb-6 text-gray-400"> [cite: 51]
+                展示各种常用和弦（三和弦、七和弦及其扩展变化）在钢琴上的具体按法和排列方式。
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-1">
+                    <div class="large-element font-bold highlight-text">基础排列</div>
+                    <div class="sub-text">三和弦、七和弦的基础手位。</div>
+                    <div class="eng-sub">Basic Voicings (Triads, 7ths)</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-2">
+                    <div class="large-element font-bold highlight-text">扩展排列</div>
+                    <div class="sub-text">包含 9, 11, 13 音及变化音的排列。</div>
+                    <div class="eng-sub">Extended Voicings (9, 11, 13, Alterations)</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-3">
+                    <div class="large-element font-bold highlight-text">变化和弦</div>
+                    <div class="sub-text">如 C7(b9), Cmaj7(#11) 等复杂和弦排列。</div>
+                    <div class="eng-sub">Altered Chord Voicings</div>
+                </div>
+                <div class="mini-card rounded-lg p-4 text-center stagger-delay-4">
+                    <div class="large-element font-bold highlight-text">密集/开放</div>
+                    <div class="sub-text">根据需要选择密集或开放排列。</div>
+                    <div class="eng-sub">Close / Open Voicings</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 highlight-text"><i class="fas fa-file-alt mr-2"></i>附加乐谱
+                <span class="text-lg text-gray-400 font-normal ml-2">Appendix: Sheet Music</span>
+            </h3>
+            <p class="mb-4 text-gray-400"> [cite: 3]
+                教材包含流行和爵士乐曲的乐谱供练习和应用所学技巧。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mini-card rounded-lg p-4 stagger-delay-1">
+                    <h4 class="font-semibold mb-2 highlight-text">流行篇 (Pop Section)</h4>
+                    <p class="sub-text text-xs"> [cite: 3]
+                        包含《Big Big World》, 《年少有为》, 《月半小夜曲》, 《迷迭香》, 《默》, 《你的甜蜜》, 《如愿》, 《她说》, 《最长的电影》等。
+                    </p>
+                </div>
+                <div class="mini-card rounded-lg p-4 stagger-delay-2">
+                    <h4 class="font-semibold mb-2 highlight-text">爵士篇 (Jazz Section)</h4>
+                    <p class="sub-text text-xs"> [cite: 3]
+                        包含《SO WHAT》, 《NIGHT AND DAY》, 《Besame Mucho》, 《Blue Bossa》, 《Summer Time》, 《Autumn Leaves》等。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add staggered delay classes dynamically for mini-cards within grids
+                        if (entry.target.classList.contains('mini-card')) {
+                            const parentGrid = entry.target.closest('.grid');
+                            if (parentGrid) {
+                                const items = Array.from(parentGrid.children);
+                                const itemIndex = items.indexOf(entry.target);
+                                // Apply stagger based on index modulo 5 (or number of columns)
+                                entry.target.classList.add(`stagger-delay-${(itemIndex % 5) + 1}`);
+                            }
+                        }
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Observe all main cards and mini cards
+            const elementsToAnimate = document.querySelectorAll('.main-card, .mini-card');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
